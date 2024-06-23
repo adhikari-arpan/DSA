@@ -12,7 +12,7 @@ void dequeue_f();
         int choice;
         while(1)
         {
-        printf("1.Enqueue from rear side\n2.Dequeue from rear side\n3.Display the data\n4.Enqueue from front\n5.Dequeue from front\n6.Exit");
+        printf("\n1.Enqueue from rear side\n2.Dequeue from rear side\n3.Display the data\n4.Enqueue from front\n5.Dequeue from front\n6.Exit");
         printf("\nEnter your choice\n");
         scanf("%d",&choice);
         switch(choice)
@@ -43,11 +43,11 @@ void dequeue_f();
 void enqueue_r()
 {
     int data;
-    printf("\nEnter data you want to insert\n");
+    printf("Enter data you want to insert\n");
     scanf("%d",&data);
     if(front==0 && rear==size-1)
     {
-        printf("Dequeue is full \n");
+        printf("Deque is full \n");
         return;
     }
     else if(front==-1 && rear==-1)
@@ -81,7 +81,7 @@ void enqueue_f()
     scanf("%d",&data);
     if(front==0 && rear==size-1)
     {
-        printf("Dequeue is full \n");
+        printf("Deque is full \n");
         return;
     }
     else if(front==-1 && rear==-1)
@@ -98,7 +98,7 @@ void enqueue_f()
         }
         else
         {
-            for(int i=rear;i>=front;i++)
+            for(int i=rear;i>=front;i--)
             {
                 q[i+1]=q[i];
             }
@@ -112,18 +112,20 @@ void dequeue_r()
 {
     if(front==-1 && rear==-1)
     {
-        printf("Dequeue is Empty\n");
+        printf("Deque is Empty\n");
         return;
     }
     else if(front==rear)
     {
         data = q[rear];
         front=rear=-1;
+        printf("Deleted Element = %d",data);
     }
     else
     {
         data = q[rear];
         rear = rear-1;
+        printf("Deleted Element = %d",data);
     }
 }
 
@@ -131,38 +133,39 @@ void dequeue_f()
 {
     if(front==-1 && rear==-1)
     {
-        printf("Dequeue is Empty\n");
+        printf("Deque is Empty\n");
         return;
     }
     else if(front==rear)
     {
         data = q[front];
         front=rear=-1;
+        printf("Deleted Element = %d",data);
     }
     else
     {
         data = q[front];
         front = front+1;
+        printf("Deleted Element = %d",data);
+
     }
 }
 
 void display()
 {
-   {
     int i;
     if(front==-1 && rear==-1)
     {
-    printf("Queue is empty\n");
-    return;
+        printf("Deque is empty\n");
+        return;
     }
     else
     {
-    printf("Queue elements are: \n");
-    for(i=front;i<=rear;i++)
-    {
-        printf("%d\t",q[i]);
-    }
+        printf("Queue elements are: \n");
+        for(i=front;i<=rear;i++)
+        {
+            printf("%d\t",q[i]);
+        }
     }
     printf("\n");
-    }
 }
