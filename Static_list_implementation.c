@@ -109,6 +109,7 @@ void delete_spec()
             list[i]=list[i+1];
         }
         size--;
+        printf("Deleted item= %d \t",item_del);
     }
 }
 
