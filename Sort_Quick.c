@@ -39,3 +39,4 @@ void quick(int a[], int low, int high)
     quick(a, pivot + 1, high);
     quick(a, low, pivot - 1);
 }
+
